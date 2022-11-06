@@ -1,0 +1,30 @@
+name : Build Debug 🏗️
+
+on :
+  push :
+        branches :
+        - master
+
+jobs :
+  build :
+    runs-on : ubuntu-latest
+    step :
+      - user : actions/checkout@v2
+      - name : set up JDK 11
+        user : actions/setup-java@v1
+        with :
+            java-version : 11
+            distribution : 'temurin'
+            cache : gradle
+
+      - name : Make gradlew executable
+        run : chmod +x ./gradlew
+
+      - name : Build Debug APK
+        run : ./gradlew assembleDebug
+
+      - name : Upload APK
+        user : actions/upload-artifact@v2
+        with :
+            name : apk
+            path : app/build/outputs/apk/debug/app-debug.apk
