@@ -1,5 +1,9 @@
 package com.atech.ci_cdandroid
 
+/*
+ This file is part of the Android CI/CD project.
+ */
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
