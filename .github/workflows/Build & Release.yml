@@ -88,5 +88,6 @@ jobs :
         with:
           appId: ${{secrets.FIREBASE_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: Test
+          groups: Tester
           file: ./app-release-unsigned.apk
+          errorOnFailedUpload: true
