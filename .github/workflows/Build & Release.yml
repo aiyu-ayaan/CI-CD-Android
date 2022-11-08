@@ -3,7 +3,7 @@ name : Build and Release 🚀
 on :
   push :
     branches:
-      - yo
+      - appDistribution
 
 jobs :
   build :
