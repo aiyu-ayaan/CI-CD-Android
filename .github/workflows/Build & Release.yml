@@ -14,7 +14,9 @@ jobs :
         uses: timheuer/base64-to-file@v1
         with:
             fileName: 'keystore/keystore.jks'
+            fileDir : './CI-CD-Android/app/'
             encodedString: ${{ secrets.KEYSTORE }}
+            echoFilePath: true
 
       - uses : actions/checkout@v2
       - name : set up JDK 11

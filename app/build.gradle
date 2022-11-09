@@ -20,13 +20,15 @@ android {
 
     signingConfigs {
         release {
-            def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-            def allFilesFromDir = new File(tmpFilePath).listFiles()
 
-            if (allFilesFromDir != null) {
-                def keystoreFile = allFilesFromDir.first()
-                keystoreFile.renameTo("keystore/your_keystore.jks")
-            }
+//
+//            def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+//            def allFilesFromDir = new File(tmpFilePath).listFiles()
+//
+//            if (allFilesFromDir != null) {
+//                def keystoreFile = allFilesFromDir.first()
+//                keystoreFile.renameTo("keystore/your_keystore.jks")
+//            }
 
             storeFile file('keystore/keystore.jks')
             storePassword System.getenv("SIGNING_STORE_PASSWORD")
@@ -42,11 +44,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    
+
     buildFeatures {
         viewBinding true
     }
-    
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
