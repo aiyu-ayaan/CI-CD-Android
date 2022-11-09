@@ -38,7 +38,7 @@ jobs :
         uses : actions/upload-artifact@v2
         with :
             name : apk
-            path : app/build/outputs/apk/release/app-release-unsigned.apk
+            path : app/build/outputs/apk/release/app-release.apk
 
 #  release:
 #    name : Release APK
@@ -69,25 +69,25 @@ jobs :
 #          asset_name: CI_CD ${{ github.ref }}.apk
 #          asset_content_type: application/zip
 
-  sendToAppDistribution:
-    name : Send to App Distribution
-    needs : build
-    runs-on : ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Download APK from build
-        uses: actions/download-artifact@v3
-        with:
-          name: apk
-      - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: Tester
-          file: ./app-release-unsigned.apk
-          errorOnFailedUpload: true
+#  sendToAppDistribution:
+#    name : Send to App Distribution
+#    needs : build
+#    runs-on : ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: set up JDK 1.8
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 1.8
+#      - name: Download APK from build
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: apk
+#      - name: upload artifact to Firebase App Distribution
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{secrets.FIREBASE_APP_ID}}
+#          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+#          groups: Tester
+#          file: ./app-release.apk
+#          errorOnFailedUpload: true
