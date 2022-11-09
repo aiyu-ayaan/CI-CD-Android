@@ -17,10 +17,9 @@ jobs :
             encodedString: ${{ secrets.KEYSTORE }}
             run: echo ${{ steps.decode_keystore.outputs.filePath }}
       - name : Copy Keystore to Project
-        run : |
-              cp ${{ steps.decode_keystore.outputs.filePath }} app/keystore/keystore.jks
+        run : | 
+              cp ${{ steps.decode_keystore.outputs.filePath }} CI-CD-Android/app/keystore.jks
               echo ${{ steps.decode_keystore.outputs.filePath }}
-              echo ${{ steps.decode_keystore.outputs.fileName }}
         
 
       - uses : actions/checkout@v2
