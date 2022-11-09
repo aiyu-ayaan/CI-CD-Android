@@ -18,10 +18,11 @@ jobs :
             run: echo ${{ steps.decode_keystore.outputs.filePath }}
       - name : Copy Keystore to Project
         run : | 
-              mkdir -p /home/runner/work/CI-CD-Android/CI-CD-Android/app/keystore
-              cp ${{ steps.decode_keystore.outputs.filePath }} '/home/runner/work/CI-CD-Android/CI-CD-Android/app/keystore/keystore.jks'
+              KEYSTORE_PATH=/home/runner/work/CI-CD-Android/CI-CD-Android/app
+              mkdir -p KEYSTORE_PATH/keystore
+              cp ${{ steps.decode_keystore.outputs.filePath }} 'KEYSTORE_PATH/keystore/keystore.jks'
               echo ${{ steps.decode_keystore.outputs.filePath }}
-              ls -la /home/runner/work/CI-CD-Android/CI-CD-Android/app
+              ls -la KEYSTORE_PATH
         
 
       - uses : actions/checkout@v2
