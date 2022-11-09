@@ -16,7 +16,8 @@ jobs :
             fileName: 'keystore/keystore.jks'
             encodedString: ${{ secrets.KEYSTORE }}
             run: echo ${{ steps.decode_keystore.outputs.filePath }}
-
+      - name : Copy Keystore to Project directory
+        run : cp ${{ steps.decode_keystore.outputs.filePath }} keystore/keystore.jks
         
 
       - uses : actions/checkout@v2
