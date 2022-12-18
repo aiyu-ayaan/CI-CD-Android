@@ -75,5 +75,7 @@ jobs :
           files: |
             CI_CD.apk
             CI_CD.aab
-          tag_name: ${{ github.ref }}
+          prerelease: true
+          # get that tag name only
+          tag_name: ${{ steps.create_release.outputs.tag_name }}
           token: ${{ secrets.ACCOUNT_TOKEN }}
