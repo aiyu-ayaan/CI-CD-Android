@@ -64,7 +64,7 @@ jobs :
       - name: Rename APK
         run: |
           echo ${{ github.ref }}
-          v =${{ github.ref }} | cut -c 11-
+          v = (${{ github.ref }} | cut -c 11-)
           mv ./app-release-unsigned.apk CI_CD v.apk
           
 
@@ -73,7 +73,7 @@ jobs :
       - name: Rename ABB
         run: |
           echo ${{ github.ref }}
-          v =${{ github.ref }} | cut -c 11-
+          v =(${{ github.ref }} | cut -c 11-)
           mv ./app-release.aab CI_CD v.aab
       # use this to softprops/action-gh-release@v1 upload the apk file to the release
       - name: Upload APK to Release
