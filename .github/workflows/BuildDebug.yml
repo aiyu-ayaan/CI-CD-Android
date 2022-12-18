@@ -75,6 +75,8 @@ jobs :
           files: |
             mv CI_CD.apk CI_CD ${{ steps.create_release.outputs.tag_name  }}.apk
             mv CI_CD.aab CI_CD ${{ steps.create_release.outputs.tag_name  }}.aab
+            CI_CD ${{ steps.create_release.outputs.tag_name  }}.apk
+            CI_CD ${{ steps.create_release.outputs.tag_name  }}.aab
           prerelease: true
           # get that tag name only
           tag_name: ${{ steps.create_release.outputs.tag_name }}
