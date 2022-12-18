@@ -61,7 +61,7 @@ jobs :
       #     release_name: ${{ github.event.repository.name }} ${{ github.ref }}
 
       # Rename the apk file to the tag name
-      - name: Rename APK
+      - name: Rename APK 
         run: mv ./app-release-unsigned.apk CI_CD.apk
       #  Rename the abb file to the tag name
       - name: Rename ABB
@@ -73,8 +73,8 @@ jobs :
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            CI_CD.apk
-            CI_CD.aab
+            mv CI_CD.apk CI_CD ${{ steps.create_release.outputs.tag_name  }}.apk
+            mv CI_CD.aab CI_CD ${{ steps.create_release.outputs.tag_name  }}.aab
           prerelease: true
           # get that tag name only
           tag_name: ${{ steps.create_release.outputs.tag_name }}
