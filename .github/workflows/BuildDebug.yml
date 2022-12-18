@@ -2,13 +2,9 @@ name : Build Debug 🏗️
 
 on :
   push :
-    branches :
-      - experiment
     tags:
       - v*
-  pull_request :
-    branches :
-      - experiment
+
 
 jobs :
   build :
