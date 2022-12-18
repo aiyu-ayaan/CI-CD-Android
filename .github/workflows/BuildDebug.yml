@@ -72,9 +72,10 @@ jobs :
           GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
         uses: softprops/action-gh-release@v1
         with:
-          files: |
+        run : |
             mv CI_CD.apk CI_CD ${{ steps.create_release.outputs.tag_name  }}.apk
             mv CI_CD.aab CI_CD ${{ steps.create_release.outputs.tag_name  }}.aab
+        files: |
             CI_CD ${{ steps.create_release.outputs.tag_name  }}.apk
             CI_CD ${{ steps.create_release.outputs.tag_name  }}.aab
           prerelease: true
