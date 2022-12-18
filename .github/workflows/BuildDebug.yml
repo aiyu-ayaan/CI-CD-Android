@@ -62,10 +62,10 @@ jobs :
 
       # Rename the apk file to the tag name
       - name: Rename APK
-        run: mv ./app-release-unsigned.apk CI_CD ${{ github.ref }}.apk
+        run: mv ./app-release-unsigned.apk CI_CD.apk
       #  Rename the abb file to the tag name
       - name: Rename ABB
-        run: mv ./app-release.aab CI_CD ${{ github.ref }}.aab
+        run: mv ./app-release.aab CI_CD.aab
       # use this to softprops/action-gh-release@v1 upload the apk file to the release
       - name: Upload APK to Release
         env:
@@ -73,7 +73,7 @@ jobs :
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            CI_CD ${{ github.ref }}.apk
-            CI_CD ${{ github.ref }}.aab
+            CI_CD.apk
+            CI_CD.aab
           tag_name: ${{ github.ref }}
           token: ${{ secrets.ACCOUNT_TOKEN }}
