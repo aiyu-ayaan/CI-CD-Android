@@ -51,14 +51,14 @@ jobs :
         uses: actions/download-artifact@v3
         with:
           name: abb
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
-        with:
-          tag_name: ${{ github.ref  }}
-          release_name: ${{ github.event.repository.name }} ${{ github.ref }}
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
+      #   with:
+      #     tag_name: ${{ github.ref  }}
+      #     release_name: ${{ github.event.repository.name }} ${{ github.ref }}
 
       # Rename the apk file to the tag name
       - name: Rename APK
