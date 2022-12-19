@@ -85,6 +85,7 @@ jobs :
             CI_CD_*.apk
             CI_CD_*.abb
           prerelease: true
-          # get that tag name only
           tag_name: ${{ steps.create_release.outputs.tag_name }}
+          # name = repo name + tag name
+          name: ${{ github.event.repository.name }} ${{ steps.create_release.outputs.name }}
           token: ${{ secrets.ACCOUNT_TOKEN }}
