@@ -80,9 +80,10 @@ jobs :
           GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
         uses: softprops/action-gh-release@v1
         with:
+          fail_on_missing: true
           files: |
-            ./CI_CD_$v.apk
-            ./CI_CD_$v.abb
+            CI_CD_*.apk
+            CI_CD_*.abb
           prerelease: true
           # get that tag name only
           tag_name: ${{ steps.create_release.outputs.tag_name }}
