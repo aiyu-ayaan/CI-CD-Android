@@ -87,5 +87,5 @@ jobs :
           prerelease: true
           tag_name: ${{ steps.create_release.outputs.tag_name }}
           # Repo name + tag name
-          name: ${{ github.event.repository.name }} ${{ github.event.inputs.releaseName }}
+          name: ${{ github.event.repository.name }}_${{ github.event.inputs.releaseName }}
           token: ${{ secrets.ACCOUNT_TOKEN }}
