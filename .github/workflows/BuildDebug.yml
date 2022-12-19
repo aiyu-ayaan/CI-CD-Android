@@ -81,8 +81,8 @@ jobs :
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            CI_CD_$v.abb
-            CI_CD_$v.apk
+            ./CI_CD_$v.apk
+            ./CI_CD_$v.abb
           prerelease: true
           # get that tag name only
           tag_name: ${{ steps.create_release.outputs.tag_name }}
