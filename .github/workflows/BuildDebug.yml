@@ -86,6 +86,6 @@ jobs :
             CI_CD_*.abb
           prerelease: true
           tag_name: ${{ steps.create_release.outputs.tag_name }}
-          # name = repo name + tag name
-          name: ${{ github.event.repository.name }} ${{ github.ref }}
+          # name = repo name + relese tag
+          name: ${{ github.event.repository.name }} $(${{ github.ref }} | cut -c 11-)
           token: ${{ secrets.ACCOUNT_TOKEN }}
