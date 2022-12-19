@@ -65,7 +65,7 @@ jobs :
         run: |
           echo ${{ github.ref }}
           v=$(echo ${{ github.ref }} | cut -c 11-)
-          mv ./app-release-unsigned.apk CI_CD $v.apk
+          mv ./app-release-unsigned.apk CI_CD_$v.apk
 
           
 
@@ -75,7 +75,7 @@ jobs :
         run: |
           echo ${{ github.ref }}
           v=$(echo ${{ github.ref }} | cut -c 11-)
-          mv ./app-release-unsigned.apk CI_CD $v.abb
+          mv ./app-release-unsigned.apk CI_CD_$v.abb
       # use this to softprops/action-gh-release@v1 upload the apk file to the release
       - name: Upload APK to Release
         env:
